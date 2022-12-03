@@ -4,7 +4,10 @@ import android.util.Log
 import com.example.newsassignment.common.DispatcherProvider
 import com.example.newsassignment.common.Resource
 import com.example.newsassignment.data.remote.NewsApi
+import com.example.newsassignment.data.remote.dto.ArticleDTO
 import com.example.newsassignment.data.remote.dto.NewsResponse
+import com.example.newsassignment.data.remote.dto.toArticle
+import com.example.newsassignment.domain.model.Article
 import com.example.newsassignment.domain.repository.NewsRepository
 import com.example.newsassignment.utils.Constants
 import kotlinx.coroutines.flow.Flow
@@ -21,12 +24,12 @@ class NewsRepositoryImpl @Inject constructor(
     private val newsApi: NewsApi
 ) : NewsRepository {
 
-    override suspend fun getTopHeadlines(): Flow<Resource<NewsResponse>> =
+    override suspend fun getTopHeadlines(): Flow<Resource<List<Article>>> =
         withContext(dispatcher.io) {
             return@withContext flow {
                 try {
                     emit(Resource.Loading())
-                    val response = newsApi.getTopHeadlines()
+                    val response = newsApi.getTopHeadlines().articles.map(ArticleDTO::toArticle)
                     emit(Resource.Success(response))
                 } catch (e: HttpException) {
                     Log.e(TAG, e.localizedMessage)

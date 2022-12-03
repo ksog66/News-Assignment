@@ -4,6 +4,9 @@ buildscript {
         retrofitVersion = '2.9.0'
         moshiVersion = '1.14.0'
         hiltVersion = '2.44'
+        lifecycle_ktx = '2.5.1'
+        nav_version = '2.5.3'
+        compose_runtime_version = '2.6.0-alpha02'
     }
 }// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
