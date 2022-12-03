@@ -9,6 +9,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.newsassignment.presentation.home.HomeRoute
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -31,7 +32,9 @@ fun NewsAppNavHost(modifier: Modifier = Modifier, navHost: NavHostController) {
         startDestination = NewsAppDestinations.Home.route
     ) {
         composable(route = NewsAppDestinations.Home.route) {
+            HomeRoute {
 
+            }
         }
 
         composable(route = NewsAppDestinations.DetailedNews.route) {

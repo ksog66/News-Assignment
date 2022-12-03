@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">News Assignment</string>
+
+    <string name="no_internet_connection">No Internet Connection</string>
+    <string name="please_connect_to_internet">Please Connect To Internet</string>
 </resources>

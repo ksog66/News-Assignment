@@ -1,4 +1,4 @@
-package com.example.newsassignment.ui.theme
+package com.example.newsassignment.presentation.theme
 
 import android.app.Activity
 import android.os.Build
@@ -10,20 +10,24 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
+import com.example.newsassignment.ui.theme.Pink40
+import com.example.newsassignment.ui.theme.Pink80
+import com.example.newsassignment.ui.theme.Typography
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
+    primary = Color.Black,
+    secondary = Color.White,
     tertiary = Pink80
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
+    primary = Color.Black,
+    secondary = Color.White,
     tertiary = Pink40
 
     /* Other default colors to override

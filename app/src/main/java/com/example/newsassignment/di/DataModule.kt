@@ -1,5 +1,7 @@
 package com.example.newsassignment.di
 
+import android.content.Context
+import android.net.ConnectivityManager
 import com.example.newsassignment.common.DispatcherProvider
 import com.example.newsassignment.data.remote.NewsApi
 import com.example.newsassignment.domain.repository.NewsRepository
@@ -8,6 +10,7 @@ import com.example.newsassignment.utils.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -40,6 +43,11 @@ class DataModule {
             .build()
             .create(NewsApi::class.java)
     }
+
+    @Provides
+    @Singleton
+    fun provideConnectivityManager(@ApplicationContext context: Context) =
+        context.getSystemService(ConnectivityManager::class.java) as ConnectivityManager
 
     @Provides
     @Singleton

@@ -64,7 +64,11 @@ dependencies {
     implementation 'androidx.compose.material3:material3:1.0.0'
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_ktx"
     implementation "androidx.navigation:navigation-compose:$nav_version"
+    implementation "androidx.hilt:hilt-navigation-compose:$compose_hilt"
     implementation "androidx.lifecycle:lifecycle-runtime-compose:$compose_runtime_version"
+
+    //Lottie compose
+    implementation "com.airbnb.android:lottie-compose:$lottieVersion"
 
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
