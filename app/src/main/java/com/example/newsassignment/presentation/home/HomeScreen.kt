@@ -29,7 +29,11 @@ import com.example.newsassignment.presentation.components.LoadImage
 
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier, articles: List<Article>,onArticleClick: (String) -> Unit) {
+fun HomeScreen(
+    modifier: Modifier = Modifier,
+    articles: List<Article>,
+    onArticleClick: (String) -> Unit
+) {
     Column(
         modifier = modifier.fillMaxSize()
     ) {
@@ -55,12 +59,24 @@ fun ArticleDisplay(
         modifier = modifier.padding(5.dp),
         onClick = onArticleClick
     ) {
+        Text(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 2.dp, start = 8.dp, end = 8.dp),
+            text = article.title,
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.primary,
+            maxLines = 3,
+            overflow = TextOverflow.Ellipsis
+        )
+
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp)
         ) {
+
             LoadImage(
                 modifier = Modifier.requiredSize(100.dp),
                 url = article.coverImageUrl
@@ -73,19 +89,13 @@ fun ArticleDisplay(
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
 
-                Column {
-
-
-                    Spacer(modifier = Modifier.height(4.dp))
-
-                    Text(
-                        text = article.description,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.primary,
-                        maxLines = 2,
-                        overflow = TextOverflow.Ellipsis
-                    )
-                }
+                Text(
+                    text = article.description,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.primary,
+                    maxLines = 5,
+                    overflow = TextOverflow.Ellipsis
+                )
 
                 Spacer(modifier = Modifier.height(4.dp))
 
