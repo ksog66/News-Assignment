@@ -102,3 +102,26 @@ fun TextP40(
         modifier = modifier
     )
 }
+
+@Composable
+fun TextP60(
+    text: String,
+    modifier: Modifier = Modifier,
+    color: Color = MaterialTheme.colorScheme.primary,
+    textAlign: TextAlign? = null,
+    maxLines: Int = Int.MAX_VALUE,
+    fontWeight: FontWeight? = null,
+) {
+    Text(
+        text = text,
+        color = color,
+        fontSize = 13.sp,
+        lineHeight = 15.sp,
+        letterSpacing = 0.sp,
+        maxLines = maxLines,
+        overflow = TextOverflow.Ellipsis,
+        textAlign = textAlign,
+        fontWeight = fontWeight,
+        modifier = modifier
+    )
+}

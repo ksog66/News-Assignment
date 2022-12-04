@@ -1,5 +1,6 @@
-package com.example.newsassignment.ui.theme
+package com.example.newsassignment.presentation.theme
 
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -10,10 +11,53 @@ import androidx.compose.ui.unit.sp
 val Typography = Typography(
     bodyLarge = TextStyle(
         fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 14.sp,
+        lineHeight = 16.sp
+    ),
+
+    bodyMedium = TextStyle(
+        fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
+        fontSize = 12.sp,
+        lineHeight = 14.sp,
+        letterSpacing = 0.25.sp
+    ),
+
+    bodySmall = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 12.sp,
+        lineHeight = 14.sp,
         letterSpacing = 0.5.sp
+    ),
+
+    displayMedium = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.W300,
+        fontSize = 16.sp,
+        lineHeight = 18.sp
+    ),
+
+    titleLarge = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 30.sp,
+        lineHeight = 34.sp
+    ),
+
+    titleMedium = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Light,
+        fontSize = 14.sp,
+        lineHeight = 16.sp
+    ),
+
+    labelSmall = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Light,
+        fontSize = 12.sp,
+        lineHeight = 14.sp
     )
     /* Other default text styles to override
     titleLarge = TextStyle(

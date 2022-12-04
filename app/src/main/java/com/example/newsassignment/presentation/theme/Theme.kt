@@ -15,9 +15,6 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
-import com.example.newsassignment.ui.theme.Pink40
-import com.example.newsassignment.ui.theme.Pink80
-import com.example.newsassignment.ui.theme.Typography
 
 private val DarkColorScheme = darkColorScheme(
     primary = Color.Black,

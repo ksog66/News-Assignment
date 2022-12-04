@@ -10,6 +10,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -23,7 +25,20 @@ class HomeViewModel @Inject constructor(
     val uiState: StateFlow<HomeUiState> = _uiState
 
     init {
+        registerNetwork()
         fetchTopHeadlines()
+    }
+
+    private fun registerNetwork() {
+        networkInfoProvider.listenToChanges().onEach {
+            onNetworkAvailable(it)
+        }.launchIn(viewModelScope)
+    }
+
+    private fun onNetworkAvailable(available:Boolean?) {
+        if (available == true) {
+            fetchTopHeadlines()
+        }
     }
 
     fun fetchTopHeadlines() {

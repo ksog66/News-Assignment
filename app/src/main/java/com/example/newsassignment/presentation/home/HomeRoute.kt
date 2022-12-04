@@ -30,7 +30,7 @@ import com.example.newsassignment.presentation.theme.NewsAssignmentTheme
 fun HomeRoute(
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = hiltViewModel(),
-    onItemClick: (String) -> Unit
+    onArticleClick: (String) -> Unit
 ) {
 
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -50,7 +50,8 @@ fun HomeRoute(
         }
 
         is HomeViewModel.HomeUiState.Success -> {
-
+            val articlesData = (uiState as HomeViewModel.HomeUiState.Success).articles
+            HomeScreen(modifier = modifier, articles = articlesData, onArticleClick = onArticleClick)
         }
     }
 }
@@ -77,7 +78,7 @@ private fun LoadingScreen(modifier: Modifier = Modifier) {
         val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.loading))
         LottieAnimation(
             modifier = Modifier
-                .size(500.dp)
+                .fillMaxSize()
                 .align(Alignment.CenterHorizontally),
             composition = composition,
             iterations = LottieConstants.IterateForever

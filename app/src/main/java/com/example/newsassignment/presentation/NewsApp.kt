@@ -32,8 +32,10 @@ fun NewsAppNavHost(modifier: Modifier = Modifier, navHost: NavHostController) {
         startDestination = NewsAppDestinations.Home.route
     ) {
         composable(route = NewsAppDestinations.Home.route) {
-            HomeRoute {
-
+            HomeRoute {url ->
+                navHost.navigate(
+                    NewsAppDestinations.DetailedNews.passNewsUrl(url)
+                )
             }
         }
 
