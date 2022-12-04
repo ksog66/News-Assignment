@@ -67,6 +67,9 @@ dependencies {
     implementation "androidx.hilt:hilt-navigation-compose:$compose_hilt"
     implementation "androidx.lifecycle:lifecycle-runtime-compose:$compose_runtime_version"
 
+    //System UI Controller - Accompanist
+    implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version"
+
     //Lottie compose
     implementation "com.airbnb.android:lottie-compose:$lottieVersion"
 

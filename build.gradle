@@ -10,6 +10,7 @@ buildscript {
         compose_hilt = '1.0.0'
         lottieVersion = '5.2.0'
         coil_compose_version = '2.2.2'
+        accompanist_version = '0.28.0'
     }
 }// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {

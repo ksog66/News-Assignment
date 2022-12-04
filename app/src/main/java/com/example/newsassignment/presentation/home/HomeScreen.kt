@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -55,8 +56,11 @@ fun ArticleDisplay(
     onArticleClick: () -> Unit
 ) {
     Card(
-        shape = MaterialTheme.shapes.small,
         modifier = modifier.padding(5.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+        ),
+        shape = MaterialTheme.shapes.large,
         onClick = onArticleClick
     ) {
         Text(
@@ -65,7 +69,6 @@ fun ArticleDisplay(
                 .padding(top = 2.dp, start = 8.dp, end = 8.dp),
             text = article.title,
             style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.primary,
             maxLines = 3,
             overflow = TextOverflow.Ellipsis
         )
@@ -92,7 +95,6 @@ fun ArticleDisplay(
                 Text(
                     text = article.description,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.primary,
                     maxLines = 5,
                     overflow = TextOverflow.Ellipsis
                 )
@@ -101,7 +103,6 @@ fun ArticleDisplay(
 
                 Text(
                     text = stringResource(id = R.string.by_author, article.author),
-                    color = MaterialTheme.colorScheme.primary,
                     style = MaterialTheme.typography.bodySmall
                 )
             }

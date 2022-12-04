@@ -1,11 +1,14 @@
 package com.example.newsassignment.presentation
 
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -25,25 +28,32 @@ import com.example.newsassignment.utils.encodeUrl
 fun NewsApp(modifier: Modifier = Modifier) {
 
     val navController = rememberNavController()
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Text(
-                        text = stringResource(id = R.string.news_break),
-                        style = MaterialTheme.typography.titleLarge,
-                        color = MaterialTheme.colorScheme.primary
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colorScheme.background
+    ) {
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = {
+                        Text(
+                            text = stringResource(id = R.string.tech_crunch_news),
+                            style = MaterialTheme.typography.titleLarge,
+                        )
+                    },
+                    colors = TopAppBarDefaults.smallTopAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                        titleContentColor = MaterialTheme.colorScheme.onSurfaceVariant
                     )
-                }
+                )
+            }
+        ) { innerPadding ->
+            NewsAppNavHost(
+                modifier = modifier.padding(innerPadding),
+                navHost = navController
             )
         }
-    ) { innerPadding ->
-        NewsAppNavHost(
-            modifier = modifier.padding(innerPadding),
-            navHost = navController
-        )
     }
-
 }
 
 @Composable
@@ -67,7 +77,7 @@ fun NewsAppNavHost(modifier: Modifier = Modifier, navHost: NavHostController) {
             })
         ) {
             val url = it.arguments?.getString(NEWS_URL_ARGUMENT_KEY) ?: ""
-            DetailedNewsRoute(url = url)
+            DetailedNewsRoute(modifier = modifier,url = url)
         }
     }
 }

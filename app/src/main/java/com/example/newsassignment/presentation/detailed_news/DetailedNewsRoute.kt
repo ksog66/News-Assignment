@@ -11,11 +11,12 @@ import androidx.compose.ui.viewinterop.AndroidView
 
 @Composable
 fun DetailedNewsRoute(
+    modifier: Modifier = Modifier,
     url: String
 ) {
 
     AndroidView(
-        modifier = Modifier.padding(top = 5.dp),
+        modifier = modifier.padding(top = 5.dp),
         factory = {
 
             WebView(it).apply {

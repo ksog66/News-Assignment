@@ -70,7 +70,8 @@ private fun ErrorScreen(modifier: Modifier = Modifier, errorMessage: String) {
         Text(
             modifier = Modifier.weight(1f),
             text = errorMessage,
-            style = MaterialTheme.typography.titleLarge
+            style = MaterialTheme.typography.titleLarge,
+            color = MaterialTheme.colorScheme.onError
         )
     }
 }
