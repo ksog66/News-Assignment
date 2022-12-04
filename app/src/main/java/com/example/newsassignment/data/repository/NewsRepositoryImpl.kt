@@ -5,7 +5,6 @@ import com.example.newsassignment.common.DispatcherProvider
 import com.example.newsassignment.common.Resource
 import com.example.newsassignment.data.remote.NewsApi
 import com.example.newsassignment.data.remote.dto.ArticleDTO
-import com.example.newsassignment.data.remote.dto.NewsResponse
 import com.example.newsassignment.data.remote.dto.toArticle
 import com.example.newsassignment.domain.model.Article
 import com.example.newsassignment.domain.repository.NewsRepository

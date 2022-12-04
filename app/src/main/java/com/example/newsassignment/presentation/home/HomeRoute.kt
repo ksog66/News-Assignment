@@ -2,7 +2,7 @@ package com.example.newsassignment.presentation.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -10,7 +10,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -19,10 +18,6 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.newsassignment.R
-import com.example.newsassignment.presentation.components.TextH10
-import com.example.newsassignment.presentation.components.TextH20
-import com.example.newsassignment.presentation.components.TextH40
-import com.example.newsassignment.presentation.components.TextP40
 import com.example.newsassignment.presentation.theme.NewsAssignmentTheme
 
 @OptIn(ExperimentalLifecycleComposeApi::class)
@@ -51,7 +46,11 @@ fun HomeRoute(
 
         is HomeViewModel.HomeUiState.Success -> {
             val articlesData = (uiState as HomeViewModel.HomeUiState.Success).articles
-            HomeScreen(modifier = modifier, articles = articlesData, onArticleClick = onArticleClick)
+            HomeScreen(
+                modifier = modifier,
+                articles = articlesData,
+                onArticleClick = onArticleClick
+            )
         }
     }
 }
@@ -68,7 +67,11 @@ private fun ErrorScreen(modifier: Modifier = Modifier, errorMessage: String) {
             iterations = LottieConstants.IterateForever
         )
 
-        TextH10(modifier = Modifier.weight(1f), text = errorMessage)
+        Text(
+            modifier = Modifier.weight(1f),
+            text = errorMessage,
+            style = MaterialTheme.typography.titleLarge
+        )
     }
 }
 
@@ -99,9 +102,10 @@ private fun NoInternetScreen(modifier: Modifier = Modifier) {
             iterations = LottieConstants.IterateForever
         )
 
-        TextH10(
+        Text(
             modifier = Modifier.weight(1f),
-            text = stringResource(id = R.string.no_internet_connection)
+            text = stringResource(id = R.string.no_internet_connection),
+            style = MaterialTheme.typography.titleLarge
         )
     }
 }
