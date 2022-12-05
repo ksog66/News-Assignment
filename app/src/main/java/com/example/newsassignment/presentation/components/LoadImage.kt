@@ -10,6 +10,8 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import coil.compose.rememberAsyncImagePainter
+import com.example.newsassignment.R
 
 @Composable
 fun LoadImage(
@@ -24,7 +26,8 @@ fun LoadImage(
             model = url,
             contentDescription = contentDescription,
             contentScale = contentScale,
-            modifier = modifier.fillMaxSize()
+            modifier = modifier.fillMaxSize(),
+            placeholder = rememberAsyncImagePainter(model = R.drawable.app_logo)
         )
     }
 }
